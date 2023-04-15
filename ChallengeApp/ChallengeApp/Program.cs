@@ -1,59 +1,41 @@
-﻿int number = 3744;
-string numberInString = number.ToString();
-char[] numbers = numberInString.ToArray();
+﻿using ChallengeApp;
 
-int[] counters = new int[10];
+Employee employee1 = new Employee("Andrzej", "Iksiński", 29);
+Employee employee2 = new Employee("Maciej", "Igrekowski", 35);
+Employee employee3 = new Employee("Marta", "Zetowska", 27);
 
-for (int i = 0; i < counters.Length; i++)
+employee1.AddScore(5);
+employee1.AddScore(3);
+employee1.AddScore(8);
+employee1.AddScore(1);
+employee1.AddScore(3);
+
+employee2.AddScore(4);
+employee2.AddScore(7);
+employee2.AddScore(3);
+employee2.AddScore(2);
+employee2.AddScore(8);
+
+employee3.AddScore(6);
+employee3.AddScore(5);
+employee3.AddScore(4);
+employee3.AddScore(2);
+employee3.AddScore(9);
+
+List<Employee> employees = new List<Employee>()
 {
-    counters[i] = 0;
-}
+    employee1, employee2, employee3
+};
 
-foreach (char c in numbers)
+int maxScore = -1;
+Employee bestEmployee = null;
+
+foreach (var employee in employees)
 {
-    if (c == '0')
+    if (employee.Score > maxScore)
     {
-        counters[0]++;
-    }
-    else if (c == '1')
-    {
-        counters[1]++;
-    }
-    else if (c == '2')
-    {
-        counters[2]++;
-    }
-    else if (c == '3')
-    {
-        counters[3]++;
-    }
-    else if (c == '4')
-    {
-        counters[4]++;
-    }
-    else if (c == '5')
-    {
-        counters[5]++;
-    }
-    else if (c == '6')
-    {
-        counters[6]++;
-    }
-    else if (c == '7')
-    {
-        counters[7]++;
-    }
-    else if (c == '8')
-    {
-        counters[8]++;
-    }
-    else if (c == '9')
-    {
-        counters[9]++;
+        maxScore = employee.Score;
+        bestEmployee = employee;
     }
 }
-
-for (int i = 0; i < counters.Length; i++)
-{
-    Console.WriteLine(i + "=>" +counters[i]);
-}
+Console.WriteLine(bestEmployee.Name + ", " + bestEmployee.Surname + ", " + bestEmployee.Age + ", " + bestEmployee.Score);
