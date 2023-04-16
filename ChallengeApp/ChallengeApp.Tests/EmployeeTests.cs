@@ -3,21 +3,48 @@
     public class EmployeeTests
     {
         [Test]
-        public void WhenEmployeeGetPoints_ShouldReturnCorrectResult()
+        public void TestOfMaxStatisticValue()
         {
-            //arrange
-            var employee = new Employee("Konrad", "Iksiński", 33);
-            employee.AddScore(4);
-            employee.AddScore(8);
-            employee.AddScore(-3);
-            employee.AddScore(5);
-            employee.AddScore(-6);
 
-            //act
-            var result = employee.Score;
+            var employee = new Employee("Konrad", "Iksiński");
 
-            //assert
-            Assert.AreEqual(8, result);
+            employee.AddGrade(4);
+            employee.AddGrade(6);
+            employee.AddGrade(7);
+
+            var statistic = employee.GetStatistics();
+
+            Assert.AreEqual(7, statistic.Max);
+        }
+
+        [Test]
+        public void TestOfMinStatisticValue()
+        {
+
+            var employee = new Employee("Konrad", "Iksiński");
+
+            employee.AddGrade(4);
+            employee.AddGrade(6);
+            employee.AddGrade(7);
+
+            var statistic = employee.GetStatistics();
+
+            Assert.AreEqual(4, statistic.Min);
+        }
+
+        [Test]
+        public void TestOfAverageStatisticValue()
+        {
+
+            var employee = new Employee("Konrad", "Iksiński");
+
+            employee.AddGrade(4);
+            employee.AddGrade(6);
+            employee.AddGrade(8);
+
+            var statistic = employee.GetStatistics();
+
+            Assert.AreEqual(6, statistic.Average);
         }
     }
 }
