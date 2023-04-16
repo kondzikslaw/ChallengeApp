@@ -4,6 +4,11 @@
     {
         private List<int> score = new List<int>();
 
+        public User(string login)
+        {
+            this.Login = login;
+        }
+
         public User(string login, string password)
         {
             this.Login = login;
@@ -14,15 +19,15 @@
 
         public string Password { get; private set; }
 
-        public int Score 
-        { 
-            get 
-            { 
-                return this.score.Sum(); 
-            } 
+        public int Score
+        {
+            get
+            {
+                return this.score.Sum();
+            }
         }
 
-        public void AddScore(int score) 
+        public void AddScore(int score)
         {
             this.score.Add(score);
         }
