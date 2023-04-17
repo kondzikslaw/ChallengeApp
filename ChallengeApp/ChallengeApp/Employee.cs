@@ -23,7 +23,7 @@
             }
             else
             {
-                Console.WriteLine("invalid grade value");
+                throw new Exception("Please enter grade between 0 and 100.");
             }
         }
 
@@ -35,7 +35,7 @@
             }
             else
             {
-                Console.WriteLine("String is not float.");
+                throw new Exception("String is not float.");
             }
         }
 
@@ -70,8 +70,7 @@
                     this.grades.Add(20);
                     break;
                 default:
-                    Console.WriteLine("Wrong Letter");
-                    break;
+                    throw new Exception("Wrong Letter");
             }
         }
 
