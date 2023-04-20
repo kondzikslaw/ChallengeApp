@@ -1,6 +1,4 @@
-﻿using System.Security.Cryptography.X509Certificates;
-
-namespace ChallengeApp
+﻿namespace ChallengeApp
 {
     public abstract class EmployeeBase : IEmployee
     {
